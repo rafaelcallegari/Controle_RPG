@@ -4,6 +4,10 @@ const supabaseUrl = 'https://tflmxppqxtarzbdwulqc.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmbG14cHBxeHRhcnpiZHd1bHFjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDAyODE3NzgsImV4cCI6MjA1NTg1Nzc3OH0.STkMH-gbbjeqg0qmIV4i081Rv6fzzQYX06jKkzKbRBw';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
+document.addEventListener("DOMContentLoaded", async () => {
+  await carregarValores();
+});
+
 // Recupera o nome do jogador armazenado no login
 const playerName = localStorage.getItem('playerName');
 if (!playerName) {
@@ -11,6 +15,8 @@ if (!playerName) {
 } else {
   document.getElementById('playerName').textContent = playerName;
 }
+
+
 
 // Objetos para armazenar os valores correntes e os valores base
 let currentValues = { vida: 0, sanidade: 0, pe: 0 };
