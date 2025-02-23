@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cadastro - Ficha do Personagem</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css">
+  <script src="../Scripts/cadastro.js" type="module"></script>
+
 </head>
 <body class="bg-gray-100">
   <div class="min-h-screen flex flex-col">
@@ -15,24 +16,28 @@
     </header>
 
     <!-- Conteúdo Principal -->
-    <main class="flex-grow container mx-auto px-4 py-8">
-      <div class="max-w-md mx-auto bg-white shadow-lg rounded-lg p-6">
+    <main class="flex-grow container mx-auto px-4 py-8 flex items-center justify-center">
+      <div class="max-w-md mx-auto bg-white shadow-lg rounded-lg p-10">
         <form id="cadastroForm" class="space-y-4">
           <div>
             <label for="nome" class="block text-gray-700 font-medium">Nome do Personagem:</label>
-            <input type="text" id="nome" name="nome" class="mt-1 block w-full border-gray-300 rounded-md" required>
+            <input type="text" id="nome" name="nome" class="mt-1 block w-full border-gray-300 rounded-md p-2" required>
+          </div>
+          <div>
+            <label for="senha" class="block text-gray-700 font-medium">Senha:</label>
+            <input type="password" id="senha" name="senha" class="mt-1 block w-full border-gray-300 rounded-md p-2" required>
           </div>
           <div>
             <label for="vida" class="block text-gray-700 font-medium">Vida Base:</label>
-            <input type="number" id="vida" name="vida" class="mt-1 block w-full border-gray-300 rounded-md" required>
+            <input type="number" id="vida" name="vida" class="mt-1 block w-full border-gray-300 rounded-md p-2" required>
           </div>
           <div>
             <label for="sanidade" class="block text-gray-700 font-medium">Sanidade Base:</label>
-            <input type="number" id="sanidade" name="sanidade" class="mt-1 block w-full border-gray-300 rounded-md" required>
+            <input type="number" id="sanidade" name="sanidade" class="mt-1 block w-full border-gray-300 rounded-md p-2" required>
           </div>
           <div>
             <label for="pe" class="block text-gray-700 font-medium">Pontos de Esforço Base:</label>
-            <input type="number" id="pe" name="pe" class="mt-1 block w-full border-gray-300 rounded-md" required>
+            <input type="number" id="pe" name="pe" class="mt-1 block w-full border-gray-300 rounded-md p-2" required>
           </div>
           <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
             Cadastrar
@@ -46,6 +51,6 @@
       <p>&copy; 2025 Ficha do Personagem. Todos os direitos reservados.</p>
     </footer>
   </div>
-  <script src="cadastro.js"></script>
+  <script src="../Scripts/cadastro.js"></script>
 </body>
 </html>

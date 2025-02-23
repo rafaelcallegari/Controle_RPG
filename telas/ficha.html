@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ficha do Jogador</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100">
+  <div class="min-h-screen flex flex-col">
+    <!-- Cabeçalho -->
+    <header class="bg-blue-600 text-white py-4 text-center">
+      <h1 class="text-3xl font-bold">Ficha do Jogador</h1>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="flex-grow container mx-auto px-4 py-8 flex items-center justify-center">
+      <div class="max-w-lg mx-auto bg-white shadow-lg rounded-lg p-12 text-center space-y-8">
+        <!-- Exibição do nome do jogador -->
+        <div class="mb-4">
+          <h2 class="text-xl font-semibold">Personagem: <span id="playerName"></span></h2>
+        </div>
+        
+        <!-- Seção de Atributos Correntes -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-semibold">Atributos Correntes</h3>
+          <!-- Vida Corrente -->
+          <div class="space-y-2">
+            <label class="block text-gray-700 font-medium">Vida</label>
+            <div class="flex justify-center items-center space-x-2">
+              <button id="decreaseVida" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full">–</button>
+              <span id="vidaValue" class="text-2xl font-bold">0</span>
+              <button id="increaseVida" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">+</button>
+            </div>
+          </div>
+          <!-- Sanidade Corrente -->
+          <div class="space-y-2">
+            <label class="block text-gray-700 font-medium">Sanidade</label>
+            <div class="flex justify-center items-center space-x-2">
+              <button id="decreaseSanidade" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full">–</button>
+              <span id="sanidadeValue" class="text-2xl font-bold">0</span>
+              <button id="increaseSanidade" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">+</button>
+            </div>
+          </div>
+          <!-- PE Corrente -->
+          <div class="space-y-2">
+            <label class="block text-gray-700 font-medium">PE</label>
+            <div class="flex justify-center items-center space-x-2">
+              <button id="decreasePe" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full">–</button>
+              <span id="peValue" class="text-2xl font-bold">0</span>
+              <button id="increasePe" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">+</button>
+            </div>
+          </div>
+          <!-- Botão para atualizar os valores correntes -->
+          <div>
+            <button id="updateButton" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded">
+              Atualizar
+            </button>
+          </div>
+        </div>
+        
+        <!-- Seção de Informações Base -->
+        <div class="border-t pt-4">
+          <h3 class="text-lg font-semibold mb-2">Valores Base</h3>
+          <div class="space-y-2">
+            <p>Vida Base: <span id="vidaBaseValue">0</span></p>
+            <p>Sanidade Base: <span id="sanidadeBaseValue">0</span></p>
+            <p>PE Base: <span id="peBaseValue">0</span></p>
+          </div>
+          <!-- Botão para editar os valores base -->
+          <div class="mt-4">
+            <a href="editar_base.html" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">
+              Editar Valores Base
+            </a>
+          </div>
+        </div>
+
+        <!-- Botão de Logout -->
+        <div class="mt-6">
+          <button id="logoutButton" class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
+            Sair
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-blue-600 text-white py-4 text-center">
+      <p>&copy; 2025 Ficha do Jogador. Todos os direitos reservados.</p>
+    </footer>
+  </div>
+  <script src="../Scripts/script.js" type="module"></script>
+</body>
+</html>

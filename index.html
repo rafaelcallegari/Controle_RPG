@@ -3,64 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ficha do Jogador</title>
+  <title>Bem-vindo ao Controle RPG</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-gray-100">
   <div class="min-h-screen flex flex-col">
     <!-- Cabeçalho -->
     <header class="bg-blue-600 text-white py-4 text-center">
-      <h1 class="text-3xl font-bold">Ficha do Jogador</h1>
+      <h1 class="text-3xl font-bold">Bem-vindo ao Controle RPG</h1>
     </header>
-
+    
     <!-- Conteúdo Principal -->
-    <main class="flex-grow container mx-auto px-4 py-8">
-      <div class="max-w-md mx-auto bg-white shadow-lg rounded-lg p-6">
-        <!-- Exibição do nome do jogador -->
-        <div class="mb-4 text-center">
-          <h2 class="text-xl font-semibold">Personagem: <span id="playerName"></span></h2>
-        </div>
-        <!-- Seleção de Atributo -->
-        <div class="mb-4">
-          <fieldset class="border border-gray-300 rounded p-4">
-            <legend class="text-lg font-medium text-gray-700 mb-2">Selecione o atributo</legend>
-            <div class="flex justify-around">
-              <label class="flex items-center">
-                <input type="radio" name="atributo" value="vida" class="mr-2" checked>
-                Vida
-              </label>
-              <label class="flex items-center">
-                <input type="radio" name="atributo" value="sanidade" class="mr-2">
-                Sanidade
-              </label>
-              <label class="flex items-center">
-                <input type="radio" name="atributo" value="pe" class="mr-2">
-                PE
-              </label>
-            </div>
-          </fieldset>
-        </div>
-        <!-- Ajuste do Valor -->
-        <div class="mb-4 flex justify-center items-center">
-          <button id="decrease" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full mr-4">–</button>
-          <span id="valorAtual" class="text-4xl font-bold">0</span>
-          <button id="increase" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full ml-4">+</button>
-        </div>
-        <!-- Botão de Atualização -->
-        <div class="text-center">
-          <button id="updateButton" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded">
-            Atualizar
-          </button>
-        </div>
+    <main class="flex-grow container mx-auto px-4 py-8 flex flex-col items-center justify-center">
+      <div class="space-y-4">
+        <a href="./telas/login.html" class="block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-center">
+          Login
+        </a>
+        <a href="./telas/cadastro.html" class="block bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded text-center">
+          Cadastro
+        </a>
       </div>
     </main>
-
+    
     <!-- Rodapé -->
     <footer class="bg-blue-600 text-white py-4 text-center">
-      <p>&copy; 2025 Ficha do Jogador. Todos os direitos reservados.</p>
+      <p>&copy; 2025 Controle RPG. Todos os direitos reservados.</p>
     </footer>
   </div>
-  <script src="script.js"></script>
 </body>
 </html>
