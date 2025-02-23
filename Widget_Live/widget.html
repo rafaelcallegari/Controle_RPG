@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Widget RPG</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: transparent;
+    }
+    .widget-container {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 300px;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+    }
+    .bar-container {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+    .bar {
+      height: 20px;
+      transition: width 0.5s ease-in-out;
+    }
+    .sanidade {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 30px;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="widget-container">
+    <div>
+      <p class="text-white">Vida</p>
+      <div class="bar-container">
+        <div id="vidaBar" class="bar bg-red-600"></div>
+      </div>
+      <p id="vidaText" class="text-white text-sm text-center"></p>
+    </div>
+    
+    <div>
+      <p class="text-white">PE</p>
+      <div class="bar-container">
+        <div id="peBar" class="bar bg-blue-500"></div>
+      </div>
+      <p id="peText" class="text-white text-sm text-center"></p>
+    </div>
+  </div>
+
+  <div id="sanidadeValue" class="sanidade">Sanidade: 0</div>
+
+  <script src="widget.js"></script>
+</body>
+</html>
