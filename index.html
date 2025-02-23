@@ -2,93 +2,45 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <title>Atualização de Fichas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atualização de Ficha</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Atualize seus Dados</h1>
-  <form id="playerForm">
-    <label for="nome">Nome:</label>
-    <input type="text" id="nome" name="nome" required><br>
-    
-    <label for="vida">Vida:</label>
-    <input type="number" id="vida" name="vida" required><br>
-    
-    <label for="sanidade">Sanidade:</label>
-    <input type="number" id="sanidade" name="sanidade" required><br>
-    
-    <label for="pe">PE:</label>
-    <input type="number" id="pe" name="pe" required><br>
-    
-    <button type="submit">Atualizar</button>
-  </form>
+  <div class="container">
+    <h1>Ficha do Jogador</h1>
+    <form id="playerForm">
+      <label for="nome">Nome do Jogador:</label>
+      <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+      
+      <fieldset>
+        <legend>Selecione o atributo</legend>
+        <label>
+          <input type="radio" name="atributo" value="vida" checked>
+          Vida
+        </label>
+        <label>
+          <input type="radio" name="atributo" value="sanidade">
+          Sanidade
+        </label>
+        <label>
+          <input type="radio" name="atributo" value="pe">
+          PE
+        </label>
+      </fieldset>
 
-  <h2>Dados Atualizados</h2>
-  <div id="playerData"></div>
+      <div class="value-display">
+        <button type="button" id="decrease">–</button>
+        <span id="valorAtual">0</span>
+        <button type="button" id="increase">+</button>
+      </div>
 
+      <button type="submit" id="updateButton">Atualizar</button>
+    </form>
+  </div>
+  
   <!-- Inclua o script do Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <script>
-    // Substitua pelas suas credenciais do Supabase
-    const SUPABASE_URL = 'https://<seu-projeto-id>.supabase.co';
-    const SUPABASE_ANON_KEY = '<sua-anon-key>';
-    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-    // Função para inserir/atualizar os dados do jogador
-    async function atualizarPlayer(event) {
-      event.preventDefault();
-      const nome = document.getElementById('nome').value;
-      const vida = parseInt(document.getElementById('vida').value);
-      const sanidade = parseInt(document.getElementById('sanidade').value);
-      const pe = parseInt(document.getElementById('pe').value);
-
-      // Para simplificação, vamos assumir que o jogador está se identificando pelo nome.
-      // Verifica se o jogador já existe
-      let { data: existingPlayer } = await supabase
-        .from('players')
-        .select('*')
-        .eq('nome', nome)
-        .single();
-
-      if (existingPlayer) {
-        // Atualiza o registro
-        await supabase
-          .from('players')
-          .update({ vida, sanidade, pe })
-          .eq('nome', nome);
-      } else {
-        // Insere um novo registro
-        await supabase
-          .from('players')
-          .insert([{ nome, vida, sanidade, pe }]);
-      }
-    }
-
-    document.getElementById('playerForm').addEventListener('submit', atualizarPlayer);
-
-    // Função para exibir os dados em tempo real
-    async function exibirPlayers() {
-      const { data: players } = await supabase
-        .from('players')
-        .select('*');
-      
-      const display = players.map(player => `
-        <p>
-          <strong>${player.nome}</strong> - Vida: ${player.vida}, Sanidade: ${player.sanidade}, PE: ${player.pe}
-        </p>
-      `).join('');
-      document.getElementById('playerData').innerHTML = display;
-    }
-
-    // Exibe os dados inicialmente
-    exibirPlayers();
-
-    // Configura uma inscrição em tempo real para atualizar quando houver mudanças
-    supabase
-      .from('players')
-      .on('INSERT', exibirPlayers)
-      .on('UPDATE', exibirPlayers)
-      .on('DELETE', exibirPlayers)
-      .subscribe();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
