@@ -2,9 +2,8 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ficha do Jogador</title>
-  <!-- Importa o Tailwind via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -18,9 +17,9 @@
     <!-- Conteúdo Principal -->
     <main class="flex-grow container mx-auto px-4 py-8">
       <div class="max-w-md mx-auto bg-white shadow-lg rounded-lg p-6">
-        <!-- Exibição fixa do nome (pode ser modificado futuramente para ser dinâmico) -->
+        <!-- Exibição do nome do jogador -->
         <div class="mb-4 text-center">
-          <h2 class="text-xl font-semibold">Jogador: <span id="playerName">Jogador</span></h2>
+          <h2 class="text-xl font-semibold">Personagem: <span id="playerName"></span></h2>
         </div>
         <!-- Seleção de Atributo -->
         <div class="mb-4">
@@ -50,7 +49,9 @@
         </div>
         <!-- Botão de Atualização -->
         <div class="text-center">
-          <button id="updateButton" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded">Atualizar</button>
+          <button id="updateButton" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded">
+            Atualizar
+          </button>
         </div>
       </div>
     </main>
