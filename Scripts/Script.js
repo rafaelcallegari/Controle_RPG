@@ -6,9 +6,12 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 // Verifica se o usuário está logado antes de carregar qualquer página
 const playerName = localStorage.getItem("playerName");
+
 if (!playerName) {
   alert("Você precisa fazer login primeiro!");
   window.location.href = "login.html";
+} else {
+  document.getElementById("playerName").textContent = playerName;
 }
 
 // Objetos para armazenar os valores correntes e os valores base
