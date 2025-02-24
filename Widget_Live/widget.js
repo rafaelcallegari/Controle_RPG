@@ -1,7 +1,7 @@
 import { createClient } from 'https://cdn.skypack.dev/@supabase/supabase-js';
 
 const supabaseUrl = 'https://tflmxppqxtarzbdwulqc.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRmbG14cHBxeHRhcnpiZHd1bHFjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDAyODE3NzgsImV4cCI6MjA1NTg1Nzc3OH0.STkMH-gbbjeqg0qmIV4i081Rv6fzzQYX06jKkzKbRBw';
+const supabaseKey = 'SUA_SUPABASE_KEY';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const playerName = localStorage.getItem("playerName");
@@ -12,7 +12,7 @@ if (!playerName) {
 async function carregarValores() {
   const { data, error } = await supabase
     .from("players")
-    .select("*")
+    .select("vida, vida_base, pe, pe_base")
     .eq("nome", playerName)
     .single();
 
@@ -33,11 +33,9 @@ function atualizarDisplay(data) {
 
   document.getElementById("peBar").style.width = `${pePercent}%`;
   document.getElementById("peText").textContent = `${data.pe}/${data.pe_base}`;
-
-  document.getElementById("sanidadeValue").textContent = `Sanidade: ${data.sanidade}`;
 }
 
-// Atualizar automaticamente sempre que os valores mudarem no BD
+// Atualizar automaticamente quando houver mudanças no banco
 supabase
   .channel("players")
   .on("postgres_changes", { event: "UPDATE", schema: "public", table: "players" }, (payload) => {
