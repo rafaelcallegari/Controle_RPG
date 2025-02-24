@@ -38,11 +38,12 @@ function atualizarDisplay(data) {
   document.getElementById("peText").textContent = `${data.pe}/${data.pe_base}`;
 }
 
-// Atualiza os valores automaticamente quando o banco de dados for alterado
+// Atualizar automaticamente SEM DELAY
 supabase
   .channel("players")
   .on("postgres_changes", { event: "UPDATE", schema: "public", table: "players" }, (payload) => {
     if (payload.new.nome === playerName) {
+      console.log("Atualização recebida:", payload.new);
       atualizarDisplay(payload.new);
     }
   })
