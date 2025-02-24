@@ -4,9 +4,12 @@ const supabaseUrl = 'https://tflmxppqxtarzbdwulqc.supabase.co';
 const supabaseKey = 'SUA_SUPABASE_KEY';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-const playerName = localStorage.getItem("playerName");
+// Obtém o nome do jogador da URL
+const urlParams = new URLSearchParams(window.location.search);
+const playerName = urlParams.get("player");
+
 if (!playerName) {
-  alert("Erro: Nenhum jogador encontrado!");
+  alert("Erro: Nenhum jogador foi definido!");
 }
 
 async function carregarValores() {
@@ -35,7 +38,7 @@ function atualizarDisplay(data) {
   document.getElementById("peText").textContent = `${data.pe}/${data.pe_base}`;
 }
 
-// Atualizar automaticamente quando houver mudanças no banco
+// Atualiza os valores automaticamente quando o banco de dados for alterado
 supabase
   .channel("players")
   .on("postgres_changes", { event: "UPDATE", schema: "public", table: "players" }, (payload) => {
